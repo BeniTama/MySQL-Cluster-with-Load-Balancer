@@ -265,12 +265,6 @@ sudo systemctl enable mysql
 ```
 Perintah berikut akan membuat kedua node menginstall MySQL Server, dan memperbolehkan pengguna untuk mengatur password root yang akan digunakan.
 
-Kemudian lakukan perintah berikut pada ``clusterdb2`` atau ``clusterdb3``
-```
-sudo mysql -u root -p < /vagrant/mysql-dump/mysqlsampledatabase.sql
-```
-Perintah berikut akan melakukan import sample database MySQL yang akan digunakan untuk ujicoba replikasi.
-
 Setelah melakukan perintah diatas, jalankan perintah berikut pada ``clusterdb4``:
 ```
 sudo mysql -u admin -p -h 127.0.0.1 -P 6032 --prompt='ProxySQLAdmin> ' < /vagrant/mysql-dump/proxy_config.sql
@@ -287,3 +281,9 @@ sudo mysql -u root -p < addition_to_sys.sql
 # Melakukan Import proxy_config_connection.sql
 sudo mysql -u root -p < /vagrant/mysql-dump/proxy_config_connection.sql
 ```
+
+Kemudian lakukan perintah berikut pada ``clusterdb2`` atau ``clusterdb3``
+```
+sudo mysql -u root -p < /vagrant/mysql-dump/mysqlsampledatabase.sql
+```
+Perintah berikut akan melakukan import sample database MySQL yang akan digunakan untuk ujicoba replikasi.
